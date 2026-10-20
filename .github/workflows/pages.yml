@@ -21,8 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check app.js && node --check data.js
-      - run: mkdir -p dist/assets && cp index.html style.css app.js data.js dist/ && cp assets/* dist/assets/
+      - run: node tests/content.test.mjs
+      - run: mkdir -p dist/assets && cp index.html style.css app.js data.js manual-data.js dist/ && cp assets/* dist/assets/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
